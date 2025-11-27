@@ -1,0 +1,115 @@
+<Window xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="SimplePosDesktop.MainWindow"
+    Width="900"
+    Height="550"
+    Title="Simple POS">
+
+    <Grid RowDefinitions="Auto,*" Background="#1E1E1E">
+
+        <!-- ===== TOP BAR ===== -->
+        <Border Grid.Row="0" Background="#2D2D30" Padding="10">
+            <DockPanel>
+                <TextBlock Text="Simple POS"
+                    Foreground="White"
+                    FontSize="22"
+                    FontWeight="Bold"
+                    DockPanel.Dock="Left" />
+                <TextBlock Text="Desktop Demo"
+                    Foreground="#CCCCCC"
+                    Margin="15,4,0,0"
+                    FontSize="14"
+                    DockPanel.Dock="Left" />
+            </DockPanel>
+        </Border>
+
+        <!-- ===== MAIN CONTENT ===== -->
+        <Grid Grid.Row="1"
+            ColumnDefinitions="2*,3*"
+            Margin="10">
+
+            <!-- LEFT PANEL: PRODUCTS -->
+            <Border Grid.Column="0"
+                Background="#252526"
+                CornerRadius="8"
+                Padding="10"
+                Margin="0,0,5,0">
+                <StackPanel>
+
+                    <TextBlock Text="Products"
+                        Foreground="White"
+                        FontSize="18"
+                        Margin="0,0,0,10" />
+
+                    <!-- (Optional) Search box for later -->
+                    <TextBox Watermark="Search product..."
+                        Margin="0,0,0,10" />
+
+                    <!-- Product list -->
+                    <ListBox x:Name="ProductsListBox"
+                        Height="360"
+                        Background="#1E1E1E"
+                        BorderBrush="#3E3E42"
+                        Foreground="White" />
+
+                    <!-- Add to cart button -->
+                    <Button Content="Add to Cart"
+                        Height="40"
+                        Margin="0,10,0,0"
+                        HorizontalAlignment="Stretch"
+                        Background="#007ACC"
+                        Foreground="White"
+                        Click="OnAddToCartClick" />
+                </StackPanel>
+            </Border>
+
+            <!-- RIGHT PANEL: CART -->
+            <Border Grid.Column="1"
+                Background="#252526"
+                CornerRadius="8"
+                Padding="10"
+                Margin="5,0,0,0">
+                <StackPanel>
+
+                    <TextBlock Text="Cart"
+                        Foreground="White"
+                        FontSize="18"
+                        Margin="0,0,0,10" />
+
+                    <!-- Cart list -->
+                    <ListBox x:Name="CartListBox"
+                        Height="320"
+                        Background="#1E1E1E"
+                        BorderBrush="#3E3E42"
+                        Foreground="White" />
+
+                    <!-- Total -->
+                    <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Margin="0,10,0,0">
+                        <TextBlock Text="Total: "
+                            Foreground="White"
+                            FontSize="16"
+                            Margin="0,0,5,0" />
+                        <TextBlock x:Name="TotalTextBlock"
+                            Text="$0.00"
+                            Foreground="#00FF7F"
+                            FontSize="18"
+                            FontWeight="Bold" />
+                    </StackPanel>
+
+                    <!-- Checkout button -->
+                    <Button Content="Checkout"
+                        Height="40"
+                        Margin="0,10,0,0"
+                        HorizontalAlignment="Stretch"
+                        Background="#28A745"
+                        Foreground="White"
+                        Click="OnCheckoutClick" />
+                </StackPanel>
+            </Border>
+
+        </Grid>
+
+    </Grid>
+</Window>
